@@ -1,0 +1,36 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mark
+    username: mark
+    password: ENC(AjmUb70jt7gOCSb33etjPQ==)
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: create-drop
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ENC(u7CbUT5pdcueVBLxIce6Mg==)
+
+jwt:
+  token:
+    secret-key: ENC(lNJ8c3COISOY+8F7q9QIQCP9BhJ2bNmAx6Ziw1srONSO3CqIBychrMU75igFxBF3)
+    access-expiration-time: 1800
+    refresh-expiration-time: 1209600
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+logging:
+  level:
+    org:
+      springframework: info
