@@ -1,4 +1,4 @@
-package com.mark.authentication.app.auth.dto;
+package com.mark.authentication.app.user.dto;
 
 import lombok.*;
 

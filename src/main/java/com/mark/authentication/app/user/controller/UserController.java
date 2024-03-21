@@ -1,6 +1,6 @@
 package com.mark.authentication.app.user.controller;
 
-import com.mark.authentication.app.auth.dto.JwtTokenResponse;
+import com.mark.authentication.app.user.dto.JwtTokenResponse;
 import com.mark.authentication.app.user.dto.SignUpRequest;
 import com.mark.authentication.app.user.dto.UserListResponse;
 import com.mark.authentication.app.user.dto.UserRequest;
