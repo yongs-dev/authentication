@@ -8,10 +8,10 @@ import lombok.Getter;
 @Builder
 public class SignUpRequest {
 
-    private String email;
+    private final String email;
 
     @JsonProperty("user_name")
-    private String userName;
+    private final String userName;
 
-    private String password;
+    private final String password;
 }

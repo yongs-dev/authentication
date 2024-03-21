@@ -1,4 +1,4 @@
-package com.mark.authentication.exception.handler;
+package com.mark.authentication.config.handler;
 
 import com.mark.authentication.exception.ErrorDetails;
 import com.mark.authentication.exception.InputNotFoundException;

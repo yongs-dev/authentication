@@ -7,8 +7,9 @@ import lombok.Getter;
 @Getter
 @Builder
 public class UserRequest {
-    private String email;
+
+    private final String email;
 
     @JsonProperty("user_name")
-    private String userName;
+    private final String userName;
 }

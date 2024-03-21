@@ -2,8 +2,8 @@ package com.mark.authentication.config.security;
 
 import com.mark.authentication.app.user.service.AppUserDetailsService;
 import com.mark.authentication.config.filter.AuthFilter;
-import com.mark.authentication.exception.handler.ApplicationAccessDeniedHandler;
-import com.mark.authentication.exception.handler.ApplicationAuthenticationEntryPoint;
+import com.mark.authentication.config.handler.ApplicationAccessDeniedHandler;
+import com.mark.authentication.config.handler.ApplicationAuthenticationEntryPoint;
 import com.mark.authentication.util.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

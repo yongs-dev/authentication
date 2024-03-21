@@ -1,4 +1,4 @@
-package com.mark.authentication.exception.handler;
+package com.mark.authentication.config.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mark.authentication.exception.ErrorDetails;

@@ -1,7 +1,7 @@
 package com.mark.authentication.util;
 
 import com.mark.authentication.app.user.domain.User;
-import com.mark.authentication.app.user.dto.JwtTokenResponse;
+import com.mark.authentication.app.auth.dto.JwtTokenResponse;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
