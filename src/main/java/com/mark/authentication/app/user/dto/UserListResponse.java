@@ -7,8 +7,6 @@ import java.util.List;
 
 @Getter
 @Builder
-@NoArgsConstructor(force = true)
-@AllArgsConstructor
 public class UserListResponse {
 
     private final List<User> userList;

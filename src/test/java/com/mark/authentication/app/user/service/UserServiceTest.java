@@ -41,9 +41,15 @@ public class UserServiceTest {
         final String encryptedPassword = encoder.encode(signUpRequest.getPassword());
 
         // when
-        doReturn(User.builder().email(signUpRequest.getEmail()).password(encryptedPassword).role(UserRole.ROLE_USER).build())
-                .when(userRepository)
-                .save(any(User.class));
+        doReturn(
+                User.builder()
+                        .email(signUpRequest.getEmail())
+                        .password(encryptedPassword)
+                        .role(UserRole.ROLE_USER)
+                        .build()
+        )
+        .when(userRepository)
+        .save(any(User.class));
 
         final User user = userService.signUp(signUpRequest);
 
@@ -91,7 +97,7 @@ public class UserServiceTest {
     private List<User> userList() {
         final List<User> userList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            userList.add(User.builder().email(EMAIL).password(PASSWORD).build());
+            userList.add(User.builder().email(EMAIL).password(PASSWORD).role(UserRole.ROLE_USER).build());
         }
         return userList;
     }

@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(
                 User.builder()
                         .email(signUpRequest.getEmail())
-                        .userName(signUpRequest.getUserName())
+                        .name(signUpRequest.getName())
                         .password(passwordEncoder.encode(signUpRequest.getPassword()))
                         .role(UserRole.ROLE_USER)
                         .build()
@@ -40,9 +40,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public User findByEmail(final String email) {
-        return userRepository.findByEmail(email)
+    public User findByEmailAndProvider(final String email, final String provider) {
+        return userRepository.findByEmailAndProvider(email, provider)
                 .orElseThrow(() -> new UserNotFoundException(email));
     }
 }

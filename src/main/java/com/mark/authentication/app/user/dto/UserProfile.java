@@ -1,17 +1,13 @@
 package com.mark.authentication.app.user.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
-public class SignUpRequest {
+public class UserProfile {
 
     private final String email;
-
-    @JsonProperty("user_name")
     private final String name;
-
-    private final String password;
+    private final String provider;
 }

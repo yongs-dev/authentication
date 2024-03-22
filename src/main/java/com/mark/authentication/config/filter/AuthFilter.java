@@ -25,13 +25,14 @@ public class AuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain) throws ServletException, IOException {
         final String authorizationHeader = request.getHeader(AuthConstants.AUTH_HEADER);
 
-        if (authorizationHeader != null && authorizationHeader.toUpperCase().startsWith(AuthConstants.TOKEN_TYPE)) {
+        if (authorizationHeader != null && authorizationHeader.startsWith(AuthConstants.TOKEN_TYPE)) {
             final String token = authorizationHeader.substring(AuthConstants.TOKEN_TYPE.length());
 
             if (jwtTokenProvider.isValidToken(token)) {
                 final String email = jwtTokenProvider.getEmailFromToken(token);
+                final String provider = jwtTokenProvider.getProviderFromToken(token);
 
-                UserDetails userDetails = appUserDetailsService.loadUserByUsername(email);
+                final UserDetails userDetails = appUserDetailsService.loadUserByUsername(email + "|" + provider);
                 SecurityContextHolder.getContext().setAuthentication(
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities())
                 );

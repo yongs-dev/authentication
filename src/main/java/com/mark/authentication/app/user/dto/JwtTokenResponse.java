@@ -4,7 +4,6 @@ import lombok.*;
 
 @Getter
 @Builder
-@AllArgsConstructor
 public class JwtTokenResponse {
 
     private final String email;

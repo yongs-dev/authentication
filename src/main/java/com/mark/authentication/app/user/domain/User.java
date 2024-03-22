@@ -15,19 +15,22 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseEntity {
 
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, length = 50)
     private String email;
 
     @Column(name = "user_name")
     @Size(min = 2, message = "Name should have atleast 2 characters")
-    private String userName;
+    private String name;
 
     @JsonIgnore
-    @Column(nullable = false)
+    @Column
     private String password;
 
-    @Setter
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    @Column
+    @Builder.Default
+    private String provider = "APP";
 }

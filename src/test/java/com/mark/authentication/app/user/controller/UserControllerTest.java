@@ -7,6 +7,7 @@ import com.mark.authentication.app.user.dto.SignUpRequest;
 import com.mark.authentication.app.user.dto.UserListResponse;
 import com.mark.authentication.app.user.service.UserServiceImpl;
 import com.mark.authentication.enums.role.UserRole;
+import com.mark.authentication.enums.user.UserAttributes;
 import com.mark.authentication.util.JwtTokenProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -109,7 +110,7 @@ public class UserControllerTest {
     private List<User> userList() {
         final List<User> userList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            userList.add(new User("test@test.com", "", "test", UserRole.ROLE_USER));
+            userList.add(new User("test@test.com", "", "test", UserRole.ROLE_USER, UserAttributes.KAKAO.getRegistrationId()));
         }
         return userList;
     }

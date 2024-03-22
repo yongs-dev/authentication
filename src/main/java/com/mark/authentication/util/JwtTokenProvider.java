@@ -58,7 +58,7 @@ public class JwtTokenProvider {
     }
 
     private String generateJwtRefreshToken(final User user) {
-        String savedToken = redisTemplate.opsForValue().get(user.getEmail());
+        String savedToken = redisTemplate.opsForValue().get(user.getEmail() + "|" + user.getProvider());
 
         if (savedToken == null) {
             String newToken = Jwts.builder()
@@ -70,7 +70,7 @@ public class JwtTokenProvider {
                     .compact();
 
             redisTemplate.opsForValue().set(
-                    user.getEmail(),
+                    user.getEmail() + "|" + user.getProvider(),
                     newToken,
                     JWT_TOKEN_REFRESH_EXPIRATION_TIME,
                     TimeUnit.SECONDS
@@ -112,6 +112,7 @@ public class JwtTokenProvider {
         return new HashMap<>() {{
             put("email", user.getEmail());
             put("role", user.getRole());
+            put("provider", user.getProvider());
         }};
     }
 
@@ -138,9 +139,9 @@ public class JwtTokenProvider {
         return (String) claims.get("email");
     }
 
-    public String getRoleFromToken(final String token) {
+    public String getProviderFromToken(final String token) {
         final Claims claims = getClaimsFormToken(token);
-        return (String) claims.get("role");
+        return (String) claims.get("provider");
     }
 
     public String getTokenFromHeader(final String header) {
